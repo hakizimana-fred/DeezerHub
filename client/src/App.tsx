@@ -1,18 +1,24 @@
 import {
+  Box,
   Container,
-  Paper,
-  Text,
-  Input,
-  Button,
-  Divider,
-  Title,
-} from "@mantine/core";
+  IconButton,
+  InputBase,
+  Typography,
+} from "@mui/material";
+import { IconSearch } from "@tabler/icons-react";
 import React, { useState } from "react";
 import axios from "axios";
 import { queryClient } from "./rtqClient";
 import { useQuery } from "react-query";
 import { BASE_URL } from "./constants";
 import moment from "moment";
+import SearchIcon from "@mui/icons-material/Search";
+import { BgImageWrapper, SearchBox } from "./components/styles/container";
+import ViewTrackDetails from "./components/Tracks";
+
+function HomeImageBox({ children }: any) {
+  return <BgImageWrapper>{children}</BgImageWrapper>;
+}
 
 interface ITrack {
   artist_id: number;
@@ -53,42 +59,29 @@ function App() {
   };
 
   return (
-    <Container size="xs" mt={30}>
-      <Paper shadow="xs">
-        <Title align="center" order={2}>
-          Deezer search Hub
-        </Title>
-        <Divider />
-        <form onClick={handleSubmit}>
-          <Input
-            value={search}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setSearch(e.target.value)
-            }
-            placeholder="Enter track name"
-            size="lg"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            size="lg"
-            style={{ marginTop: "1rem" }}
+    <HomeImageBox>
+      <Container>
+        <Box>
+          <Typography
+            sx={{ color: "white", fontSize: "4rem", fontWeight: 800 }}
           >
-            Search
-          </Button>
-        </form>
-        <div style={{ marginTop: "1rem" }}>
-          {tracks &&
-            tracks.map((track: ITrack) => (
-              <Paper key={track.artist_id} style={{ marginBottom: "0.5rem" }}>
-                <Text weight={700}>{track.artist_name}</Text>
-                <Text>{track.album_name}</Text>
-                <Text>Duration: {track.duration} seconds</Text>
-              </Paper>
-            ))}
-        </div>
-      </Paper>
-    </Container>
+            UNLEASH THE BEATS
+          </Typography>
+        </Box>
+        <SearchBox>
+          <InputBase
+            placeholder="Search song"
+            sx={{ flexGrow: 1, marginRight: 2 }}
+            endAdornment={
+              <IconButton>
+                <SearchIcon />
+              </IconButton>
+            }
+          />
+        </SearchBox>
+        <ViewTrackDetails results={tracks} />
+      </Container>
+    </HomeImageBox>
   );
 }
 
