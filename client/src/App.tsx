@@ -36,6 +36,7 @@ function App() {
 
   if (isError) return <div>Request Failed</div>;
   if (isLoading) return <Loader />;
+
   return (
     <>
       <Routes>
