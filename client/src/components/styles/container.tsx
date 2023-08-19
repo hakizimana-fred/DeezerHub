@@ -11,7 +11,7 @@ export const SearchBox = styled(Box)(({ theme: Theme }) => ({
 }));
 
 export const BgImageWrapper = styled(Box)(({ theme: Theme }) => ({
-  height: "100vh",
+  height: "auto",
   width: "100vw",
   background:
     "linear-gradient(135deg, rgba(31, 44, 61, 0.8), rgba(255, 92, 106, 0.8), rgba(255, 195, 113, 0.8))",

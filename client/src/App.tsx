@@ -5,26 +5,17 @@ import {
   InputBase,
   Typography,
 } from "@mui/material";
-import { IconSearch } from "@tabler/icons-react";
 import React, { useState } from "react";
 import axios from "axios";
 import { queryClient } from "./rtqClient";
 import { useQuery } from "react-query";
 import { BASE_URL } from "./constants";
-import moment from "moment";
 import SearchIcon from "@mui/icons-material/Search";
 import { BgImageWrapper, SearchBox } from "./components/styles/container";
 import ViewTrackDetails from "./components/Tracks";
 
 function HomeImageBox({ children }: any) {
   return <BgImageWrapper>{children}</BgImageWrapper>;
-}
-
-interface ITrack {
-  artist_id: number;
-  artist_name: string;
-  album_name: string;
-  duration: number;
 }
 
 function App() {
@@ -52,9 +43,7 @@ function App() {
   if (isError) return <div>Request Failed</div>;
   if (isLoading) return <div>Loading...</div>;
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const handleSearch = async () => {
     await queryClient.invalidateQueries("tracks");
   };
 
@@ -72,8 +61,12 @@ function App() {
           <InputBase
             placeholder="Search song"
             sx={{ flexGrow: 1, marginRight: 2 }}
+            value={search}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setSearch(e.target.value)
+            }
             endAdornment={
-              <IconButton>
+              <IconButton onClick={handleSearch}>
                 <SearchIcon />
               </IconButton>
             }
