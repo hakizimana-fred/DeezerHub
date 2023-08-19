@@ -55,7 +55,7 @@ class Deezer {
           ...track,
           album: album
             ? album.title
-            : 'No available album for track' + track.title,
+            : 'No available album for track ' + track.title,
           albumImage: album ? album.cover : '',
           releaseYear: album ? moment(album.release_date).format('YYYY') : '',
         };
