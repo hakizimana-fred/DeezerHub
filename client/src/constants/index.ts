@@ -1,4 +1,4 @@
 export const BASE_URL =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:5000"
-    : "https://deezerhub.onrender.com";
+    ? import.meta.env.VITE_BASE_URL_LOCAL
+    : import.meta.env.VITE_BASE_URL_PROD;
