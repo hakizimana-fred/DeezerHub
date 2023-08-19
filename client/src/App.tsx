@@ -11,6 +11,8 @@ import Loader from "./components/Loader";
 function App() {
   const [search, setSearch] = useState<string>("");
 
+  console.log(import.meta.env.VITE_BASE_URL_PROD, "prod url");
+
   async function getTracks(query: string) {
     if (query.trim() !== "" && query.length > 3) {
       const {
