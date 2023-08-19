@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import { queryClient } from "./rtqClient";
 import { useQuery } from "react-query";
 import { BASE_URL } from "./constants";
 
