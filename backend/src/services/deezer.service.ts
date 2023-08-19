@@ -2,13 +2,27 @@ import axios from 'axios';
 import moment from 'moment';
 import { BASE_URL } from '../constants';
 import { processedTracks } from '../helpers';
+
+/**
+ * Class representing the Deezer API wrapper.
+ */
 class Deezer {
   baseUrl: string;
 
+  /**
+   * Create a Deezer instance with the specified base URL.
+   * @param baseUrl - The base URL of the Deezer API.
+   */
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
   }
 
+  /**
+   * Search for tracks based on the provided track name.
+   * @param track - The track name to search for.
+   * @returns Processed track data.
+   * @throws Error if something goes wrong during the search.
+   */
   async search(track: string) {
     try {
       const {
@@ -24,6 +38,12 @@ class Deezer {
     }
   }
 
+  /**
+   * Search for an artist by their ID and fetch additional information.
+   * @param artistId - The ID of the artist to search for.
+   * @returns Artist information including top tracks with albums.
+   * @throws Error if something goes wrong during the search.
+   */
   async searchArtistById(artistId: number) {
     try {
       const { artistInfo, topTracks, albums } = await this.fetchArtistData(
@@ -47,7 +67,11 @@ class Deezer {
       throw new Error('Something went wrong while searching for tracks ' + e);
     }
   }
-
+  /**
+   * Fetch artist data including artist information, top tracks, and albums.
+   * @param artistId - The ID of the artist to fetch data for.
+   * @returns Artist data including artist information, top tracks, and albums.
+   */
   async fetchArtistData(artistId: number) {
     const artistInfoPromise = axios.get(`${this.baseUrl}/artist/${artistId}`);
     const topTracksPromise = axios.get(
@@ -68,4 +92,5 @@ class Deezer {
   }
 }
 
+// Class instance with the specified base url
 export const deezerWrapper = new Deezer(`${BASE_URL}`);

@@ -1,7 +1,15 @@
 import { Request, Response } from 'express';
 import { deezerWrapper } from '../services/deezer.service';
 
+/**
+ * Controller functions for handling Deezer related actions.
+ */
 export const deezerCtrl = {
+  /**
+   * Search for tracks based on the provided track name.
+   * @param req - The request object.
+   * @param res - The response object.
+   */
   async search(req: Request, res: Response) {
     const { track } = req.query;
     try {
@@ -20,6 +28,12 @@ export const deezerCtrl = {
       });
     }
   },
+
+  /**
+   * Search for an artist by their ID and fetch additional information.
+   * @param req - The request object.
+   * @param res - The response object.
+   */
 
   async searchById(req: Request, res: Response) {
     const { artistId } = req.params;

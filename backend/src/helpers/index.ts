@@ -6,6 +6,7 @@ export function processedTracks(tracks: any[]) {
       duration: track.duration,
       album_name: track.album.title,
       artist_id: track.artist.id,
+      image_url: track.album.cover_medium,
     }))
   );
 }
