@@ -54,6 +54,7 @@ class Deezer {
         return {
           ...track,
           album: album ? album.title : 'No available album for this track',
+          albumImage: album ? album.cover : '',
           releaseYear: album ? moment(album.release_date).format('YYYY') : '',
         };
       });
@@ -61,6 +62,7 @@ class Deezer {
       return {
         name: artistInfo.name,
         fans: artistInfo.nb_fan,
+        picture: artistInfo.picture,
         topTracksWithAlbums,
       };
     } catch (e) {

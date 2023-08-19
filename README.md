@@ -1,5 +1,8 @@
+<<<<<<< HEAD
+=======
 # DeezerHub
 Discover, play, and explore an endless world of music with DeezerHub. Our React/Node app taps into the Deezer API, delivering a seamless and immersive music streaming experience. Unleash the beats today.
+>>>>>>> main
 ## Structure
 | Codebase              |      Description          |
 | :-------------------- | :-----------------------: |
@@ -10,4 +13,8 @@ Discover, play, and explore an endless world of music with DeezerHub. Our React/
 - []() Reactjs
 - []() React Query
 - []() Nodejs 
+<<<<<<< HEAD
 - []() Express 
+=======
+- []() Express 
+>>>>>>> main
