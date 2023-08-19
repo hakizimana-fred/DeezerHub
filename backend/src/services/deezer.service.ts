@@ -53,7 +53,9 @@ class Deezer {
         const album = albums.find((album: any) => album.id === track.album.id);
         return {
           ...track,
-          album: album ? album.title : 'No available album for this track',
+          album: album
+            ? album.title
+            : 'No available album for track' + track.title,
           albumImage: album ? album.cover : '',
           releaseYear: album ? moment(album.release_date).format('YYYY') : '',
         };
