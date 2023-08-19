@@ -12,7 +12,7 @@ function DisplayAlbums({ artist }: { artist: any }) {
       </Box>
       <Box sx={{ display: "flex", gap: 2 }}>
         {artist &&
-          artist.topTracksWithAlbums.map((track) => {
+          artist.topTracksWithAlbums.map((track: any) => {
             return (
               <>
                 <Grid item xs={12} sm={6} md={3} key={""}>

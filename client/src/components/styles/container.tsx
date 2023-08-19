@@ -1,6 +1,4 @@
-import { Box, Container, Paper, createTheme, styled } from "@mui/material";
-
-const theme = createTheme();
+import { Box, Container, Paper, styled } from "@mui/material";
 
 export const SearchBox = styled(Box)(({ theme: Theme }) => ({
   display: "flex",

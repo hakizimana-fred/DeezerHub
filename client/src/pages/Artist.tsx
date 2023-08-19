@@ -1,5 +1,4 @@
 import { Paper, Typography, Grid, Box } from "@mui/material";
-import { artist } from "../data";
 // import DisplayAlbums from "../components/tracks/albums";
 import {
   AboutArtist,
