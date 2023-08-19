@@ -49,15 +49,15 @@ function ArtistPage() {
         <Grid item xs={12} sm={6} md={8}>
           <Paper sx={{ display: "flex" }}>
             <AboutArtist>
-              {/* <img
-                src={artist.image}
+              <img
+                src={artist.picture}
                 alt={artist.name}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              /> */}
+              />
               <ArtistBox>
                 <Typography variant="h5">{artist.name}</Typography>
-                {/* <Typography variant="body2">{artist.fans} Fans</Typography>
-                <Typography variant="body2">{artist.description}</Typography> */}
+                <Typography variant="body2">{artist.fans} Fans</Typography>
+                {/* <Typography variant="body2">{artist.description}</Typography>  */}
               </ArtistBox>
             </AboutArtist>
             <Box sx={{ p: 2, flexGrow: 1 }}>
