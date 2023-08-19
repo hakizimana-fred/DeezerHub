@@ -11,17 +11,24 @@ import React, { useState } from "react";
 import axios from "axios";
 import { queryClient } from "./rtqClient";
 import { useQuery } from "react-query";
+import { BASE_URL } from "./constants";
+import moment from "moment";
+
+interface ITrack {
+  artist_id: number;
+  artist_name: string;
+  album_name: string;
+  duration: number;
+}
 
 function App() {
   const [search, setSearch] = useState<string>("");
 
   async function getTracks() {
-    if (search.trim() !== "") {
+    if (search.trim() !== "" && search.length > 3) {
       const {
         data: { tracks },
-      } = await axios.get(
-        `http://localhost:5000/api/v1/search?track=${search}`
-      );
+      } = await axios.get(`${BASE_URL}/api/v1/search?track=${search}`);
       return tracks;
     }
   }
@@ -72,7 +79,7 @@ function App() {
         </form>
         <div style={{ marginTop: "1rem" }}>
           {tracks &&
-            tracks.map((track: any) => (
+            tracks.map((track: ITrack) => (
               <Paper key={track.artist_id} style={{ marginBottom: "0.5rem" }}>
                 <Text weight={700}>{track.artist_name}</Text>
                 <Text>{track.album_name}</Text>
