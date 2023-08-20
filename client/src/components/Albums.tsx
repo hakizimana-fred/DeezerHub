@@ -1,14 +1,11 @@
-import { albums } from "../data";
 import { Box, Grid, Typography } from "@mui/material";
 import { AlbumWrapper } from "./styles/container";
 
 function DisplayAlbums({ artist }: { artist: any }) {
-  console.log("jus arist", artist);
-
   return (
     <>
       <Box my={2}>
-        <Typography variant="h6">Album</Typography>
+        <Typography variant="h6">Albums</Typography>
       </Box>
       <Box sx={{ display: "flex", gap: 2 }}>
         {artist &&
